@@ -1,3 +1,9 @@
+# YouTube walkthrough video:
+# https://www.youtube.com/watch?v=YOUR_VIDEO_ID
+
+# Render link:
+#https://niyaxvisuals.onrender.com
+
 import os
 from pathlib import Path
 from functools import wraps
