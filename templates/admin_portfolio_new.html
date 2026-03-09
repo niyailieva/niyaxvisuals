@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Add portfolio item{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="inner">
+    <p class="kicker">ADMIN PANEL</p>
+    <h1>Add portfolio item</h1>
+    <p class="lead">This saves to SQLite and appears on the Portfolio page.</p>
+
+    <form class="form" method="post" action="{{ url_for('admin_portfolio_new') }}" enctype="multipart/form-data">
+      <input class="input" type="text" name="title" placeholder="Title" required>
+
+      <select class="input" name="category" required>
+        <option value="">Choose category</option>
+        <option value="car">Car</option>
+        <option value="detail">Detail</option>
+        <option value="night">Night</option>
+        <option value="event">Event</option>
+        <option value="rolling">Rolling</option>
+      </select>
+
+      <input class="input" type="text" name="event_name" placeholder="Event name (optional)">
+
+      <textarea class="input" name="description" placeholder="Description" required></textarea>
+
+      <input class="input" type="file" name="image" accept=".jpg,.jpeg,.png,.webp" required>
+
+      <button class="btn" type="submit">Save</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

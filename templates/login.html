@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Login — NIYAXVISUALS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="inner">
+    <h2>Admin login</h2>
+    <p class="muted">Only for adding portfolio items.</p>
+
+    <form class="form" method="post" action="{{ url_for('login') }}">
+      <input class="input" name="username" placeholder="Username" required>
+      <input class="input" name="password" type="password" placeholder="Password" required>
+      <button class="btn" type="submit">Login</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

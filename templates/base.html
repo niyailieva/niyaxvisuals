@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}NIYAXVISUALS{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('home') }}">
+      <img class="logo" src="{{ url_for('static', filename='img/work/logo.png') }}" alt="NIYAXVISUALS logo">
+      <span>NIYAXVISUALS</span>
+    </a>
+    <nav>
+
+<a href="{{ url_for('work') }}">Work</a>
+<a href="{{ url_for('portfolio') }}">Portfolio</a>
+<a href="{{ url_for('about') }}">About</a>
+<a class="pill" href="{{ url_for('book') }}">Book</a>
+<a href="https://www.instagram.com/niyaxvisuals/" target="_blank" rel="noopener">Instagram ↗</a>
+
+{% if session.get("is_admin") %}
+  <a href="{{ url_for('admin_portfolio_new') }}">Admin</a>
+  <a href="{{ url_for('requests_page') }}">Requests</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+{% else %}
+  <a href="{{ url_for('login') }}">Login</a>
+{% endif %}
+
+</nav>
+  </header>
+
+  <main class="wrap">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        {% for c, m in messages %}
+          <div class="flash {{ c }}">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

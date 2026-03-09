@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}NIYAXVISUALS{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-inner">
+    <p class="kicker">CYBER • GRAIN • MOTION • LIGHT</p>
+    <h1>NIYAXVISUALS</h1>
+    <p class="lead">
+      Car photography that feels like memory.
+      Cinematic frames, cyber-grunge texture, VHS edges, and light that hits like sound.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="{{ url_for('work') }}">View work</a>
+      <a class="btn ghost" href="{{ url_for('book') }}">Book a shoot</a>
+      <a class="btn ghost" href="https://www.instagram.com/niyaxvisuals/" target="_blank" rel="noreferrer">Instagram ↗</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">01</div>
+        <div class="stat-t">Rolling shots</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">02</div>
+        <div class="stat-t">Night + neon</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">03</div>
+        <div class="stat-t">VHS experiments</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">04</div>
+        <div class="stat-t">Detail studies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="grid">
+      <div class="card span-7">
+        <div class="pad">
+          <h2 class="h2">What you get</h2>
+          <p class="muted">
+            A shoot planned around your car and your vibe.
+            Location, timing, light, angles, and a finished set that looks like your build deserves.
+          </p>
+          <div class="chips">
+            <span class="chip">cinematic</span>
+            <span class="chip">cyber-grunge</span>
+            <span class="chip">vhs grain</span>
+            <span class="chip">motion blur</span>
+            <span class="chip">night light</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-5">
+        <div class="pad">
+          <h2 class="h2">Quick start</h2>
+          <p class="muted">
+            Want something specific? Book with a short request and I will reply with a plan.
+          </p>
+          <a class="btn" href="{{ url_for('book') }}">Start booking</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

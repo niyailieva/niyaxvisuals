@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Work{% endblock %}
+
+{% block content %}
+
+<section class="section">
+  <div class="inner">
+    <p class="kicker">WORK / SELECTED FRAMES</p>
+    <h1>Work</h1>
+    <p class="lead">
+      This page shows the visual direction behind NIYAXVISUALS.
+      It mixes motion, reflections, texture, and atmosphere into frames that feel more emotional than technical.
+      Some images are cleaner and cinematic, while others lean more into a rougher cyber-grunge style.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="work-intro-grid">
+      <div class="work-note">
+        <h3>Night / atmosphere</h3>
+        <p class="muted">Glow, reflections, dark tones, and the city becoming part of the image.</p>
+      </div>
+
+      <div class="work-note">
+        <h3>Details / texture</h3>
+        <p class="muted">Paint, wheels, lines, grain, and surfaces that make a build feel real.</p>
+      </div>
+
+      <div class="work-note">
+        <h3>Rolling / energy</h3>
+        <p class="muted">Frames built around movement and tension, where the car feels alive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="work-block-title">
+      <p class="kicker">FULL SELECTION</p>
+      <h2>Gallery</h2>
+      <p class="muted">Click any image to open it in full size.</p>
+    </div>
+
+    <div class="gallery">
+      {% for src in images %}
+      <div class="g-item" data-lightbox data-src="{{ src }}">
+        <img src="{{ src }}" alt="Work image">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="lightbox">
+  <button class="close" type="button">✕</button>
+  <img src="" alt="Full size">
+</div>
+
+{% endblock %}

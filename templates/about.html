@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="section">
+  <div class="inner">
+    <p class="kicker">ABOUT THE BRAND</p>
+    <h1>About</h1>
+    <p class="lead">
+      NIYAXVISUALS is my way of turning cars into feelings: motion, texture, light, and the atmosphere around builds.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+
+    <div class="about-brand">
+      <img class="about-logo" src="{{ url_for('static', filename='img/work/logo.png') }}" alt="NIYAXVISUALS logo">
+
+      <div>
+        <h2>NIYAXVISUALS</h2>
+        <p class="muted">
+          NIYAXVISUALS is a creative automotive photography brand focused on mood, movement, and personality.
+          The goal is not only to show cars clearly, but to make them feel alive in the frame.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-hero">
+      <div class="about-hero__photo">
+        <img class="about-photo" src="{{ url_for('static', filename='img/work/me.jpg') }}" alt="Nia">
+      </div>
+
+      <div class="about-hero__text">
+        <h2>Hi, I’m Nia</h2>
+
+        <p>
+          Like most photographers, I started shooting on my phone.
+          I kept photographing everything around me, experimenting constantly, and learning by doing.
+        </p>
+
+        <p>
+          After that I spent years working with Canon cameras, and now I shoot on Sony.
+          The equipment changed over time, but the most important thing I developed was my eye:
+          I started seeing frames in everything, even when I was not holding a camera.
+        </p>
+
+        <p>
+          My style is not only cinematic. I also enjoy old-school cyber and grungy visual language.
+          I like grain, contrast, strong reflections, unusual crops, and images that feel slightly imperfect in a good way.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="pad">
+        <h2>What the brand stands for</h2>
+        <p>
+          NIYAXVISUALS combines cinematic photography with a more experimental edge.
+          Some shoots are clean and atmospheric, others are rougher, more digital, more distorted, or more VHS-inspired.
+        </p>
+        <p>
+          The brand is built around capturing not just the car itself, but the full moment around it:
+          the location, the mood, the lighting, and the feeling the build gives off.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

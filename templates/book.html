@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Book — NIYAXVISUALS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="inner">
+    <h2>Book a shoot</h2>
+    <p class="muted">
+      Tell me the vibe and the goal. I’ll reply with a plan: location, time, and the style that fits your car.
+    </p>
+
+    <div class="grid" style="margin-top:14px;">
+      <div class="card span-6">
+        <div class="pad">
+          <h3 style="margin-top:0;">Choose your shoot type</h3>
+          <div class="chips">
+            <button class="chip-btn" type="button" data-pick="Video">Day shoot</button>
+            <button class="chip-btn" type="button" data-pick="Night">Night photoshoot</button>
+            <button class="chip-btn" type="button" data-pick="Rolling">Rolling shots</button>
+            <button class="chip-btn" type="button" data-pick="Details">Detail set</button>
+            <button class="chip-btn" type="button" data-pick="Event">Event coverage</button>
+            <button class="chip-btn" type="button" data-pick="Video">Video shoot</button>
+          </div>
+
+          <div class="hint">
+            Not sure? Pick what sounds closest. You can explain the rest in the message.
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-6">
+        <div class="pad">
+          <h3 style="margin-top:0;">Video style (if you choose video)</h3>
+          <div class="chips">
+            <button class="chip-btn" type="button" data-video="Cinematic">Cinematic</button>
+            <button class="chip-btn" type="button" data-video="VHS">VHS / camcorder</button>
+            <button class="chip-btn" type="button" data-video="Cyber-grunge">Cyber-grunge</button>
+          </div>
+          <p class="muted" style="margin-top:10px;">
+            I can also mix styles: clean story + VHS texture.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="pad">
+        <form class="form" method="post" action="{{ url_for('book') }}">
+          <div class="grid">
+            <div class="span-6">
+              <label>Your name</label>
+              <input class="input" name="name" required minlength="2" placeholder="Nia">
+            </div>
+            <div class="span-6">
+              <label>Email</label>
+              <input class="input" name="email" required placeholder="you@email.com">
+            </div>
+
+            <div class="span-6">
+              <label>Shoot type</label>
+              <input id="shoot_type" class="input" name="shoot_type" required placeholder="Night, Rolling, Details, Event, Video">
+            </div>
+
+            <div class="span-6">
+              <label>Video style (optional)</label>
+              <input id="video_style" class="input" name="video_style" placeholder="Cinematic, VHS, Cyber-grunge">
+            </div>
+
+            <div class="span-12">
+              <label>Your message</label>
+              <textarea name="message" required minlength="10" placeholder="Tell me about your car, your vibe, location ideas, and what you want the result to feel like."></textarea>
+            </div>
+          </div>
+
+          <button class="btn" type="submit">Send request</button>
+          <p class="muted" style="margin-top:10px;">
+            After submitting, your request is saved in the database and can be reviewed on the requests page.
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const shootInput = document.getElementById("shoot_type");
+  const videoInput = document.getElementById("video_style");
+
+  document.querySelectorAll("[data-pick]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      shootInput.value = btn.dataset.pick;
+    });
+  });
+
+  document.querySelectorAll("[data-video]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      videoInput.value = btn.dataset.video;
+    });
+  });
+</script>
+{% endblock %}

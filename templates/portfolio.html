@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="inner">
+    <p class="kicker">DATABASE PORTFOLIO</p>
+    <h1>Portfolio</h1>
+    <p class="lead">
+      Portfolio items are added through the admin panel, saved in SQLite, and displayed here.
+    </p>
+
+    {% if session.get("is_admin") %}
+      <div style="margin-top:16px;">
+        <a class="btn" href="{{ url_for('admin_portfolio_new') }}">Add portfolio item</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="portfolio-grid">
+      {% for item in items %}
+      <article class="portfolio-card">
+        <div class="portfolio-card__image">
+          <img src="{{ url_for('static', filename='uploads/' ~ item['image_filename']) }}" alt="{{ item['title'] }}">
+        </div>
+
+        <div class="portfolio-card__body">
+          <div class="p-tags">
+            <span class="tag">{{ item['category'] }}</span>
+            {% if item['event_name'] %}
+              <span class="tag tag2">{{ item['event_name'] }}</span>
+            {% endif %}
+          </div>
+
+          <h3>{{ item['title'] }}</h3>
+          <p class="muted small">{{ item['created_at'] }}</p>
+          <p>{{ item['description'] }}</p>
+        </div>
+      </article>
+      {% else %}
+      <div class="card">
+        <div class="pad">
+          <h3>No portfolio items yet</h3>
+          <p class="muted">Log in as admin and add your first portfolio item.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
